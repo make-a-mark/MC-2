@@ -14,16 +14,21 @@ Evan Snyder
 ## Libraries Necessary
 ### On Arduino:
 - Arduino_APDS9960.h (Gesture Sensor)
+- Arduino_LSM9DS1 (IMU)
 
 ### On Python:
 - pyautogui
 - serial
 
 ## Features
-Gesture Control:
+###Gesture Control:
 * Swipe Right = Next Track
 * Swipe Left = Prev Track
 * Swipe Up/Down = Play/Pause
+
+###Volume Control:
+* Volume Up = Rotate CCW
+* Volume Down = Rotate CW
 
 ## How to Run
 ### On Windows:
