@@ -39,3 +39,7 @@ Evan Snyder
 5. Type "python pc_control.py"
 6. Switch to whatever application you want to control, example: Spotify.
 7. Use the features, like gesture control to control your music!
+
+## Acknowledgements
+Machine Learning Process for sound processing:
+https://eloquentarduino.github.io/2020/08/better-word-classification-with-arduino-33-ble-sense-and-machine-learning/
