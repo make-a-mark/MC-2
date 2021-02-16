@@ -1,34 +1,45 @@
 # MC-2
 MC^2 - The Microcontroller Music Controller
 A smart, more interactive PC music controller using an Arduino 33 BLE Sense
-ECE M119 Fundamentals of Embedded Networked Systems Group Project
+
+UCLA Class ECE M119 Fundamentals of Embedded Networked Systems Group Project
 
 ## Team Members
 Mark Andal
+
 Andrew Lucchesi
+
 Evan Snyder
 
 ## Project Proposal
-[Initial Project Proposal] (https://docs.google.com/document/d/1gUU2CRSV_VKq6Mz_r3Ywr8m3B1aAN7H2Y15-eDvBMcA/edit?usp=sharing)
+[Initial Project Proposal](https://docs.google.com/document/d/1gUU2CRSV_VKq6Mz_r3Ywr8m3B1aAN7H2Y15-eDvBMcA/edit?usp=sharing)
 
 ## Libraries Necessary
 ### On Arduino:
 - Arduino_APDS9960.h (Gesture Sensor)
-- Arduino_LSM9DS1 (IMU)
+- Arduino_LSM9DS1.h (IMU)
+- Mic.h
 
 ### On Python:
 - pyautogui
 - serial
+- scikit-learn
+- micromlgen
+
 
 ## Features
-###Gesture Control:
+### Gesture Control:
 * Swipe Right = Next Track
 * Swipe Left = Prev Track
 * Swipe Up/Down = Play/Pause
 
-###Volume Control:
-* Volume Up = Rotate CCW
-* Volume Down = Rotate CW
+### Volume Control:
+* Volume Up = Rotate CW
+* Volume Down = Rotate CCW
+
+### Voice Recognition / Control:
+* "Play" = Play/Pause
+* "Pause" = Play/Pause
 
 ## How to Run
 ### On Windows:

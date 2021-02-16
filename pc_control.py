@@ -30,6 +30,14 @@ while 1:
             pyautogui.press('volumeup')
             print("volumeup")
 
+      if 'play' in incoming:
+            pyautogui.press('playpause')
+            print("playpause")
+
+      if 'pause' in incoming:
+            pyautogui.press('playpause')
+            print("playpause")      
+
 
 
 
