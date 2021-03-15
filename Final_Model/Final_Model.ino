@@ -20,6 +20,7 @@ const String words[NUMBER_OF_LABELS] = {"Spotify", "Launch", "Play"};  // words 
 
 
 #define PREDIC_THRESHOLD   0.6   // prediction probability threshold for labels
+#define UNCONFIDENCE_THRESH 0.4 // if any prediction is in the range [0.4-0.6], then give an unconfident prediction
 #define RAW_OUTPUT         true  // output prediction probability of each label
 #define NUMBER_OF_INPUTS   FEATURE_SIZE
 #define NUMBER_OF_OUTPUTS  NUMBER_OF_LABELS
@@ -108,6 +109,13 @@ void loop() {
     if (prediction[i] >= PREDIC_THRESHOLD) {
       Serial.print("Word detected: ");
       Serial.println(words[i]);
+      Serial.println("");
+      voice_detected = true;
+    }
+    else if (prediction[i] >= UNCONFIDENCE_THRESH) {
+      Serial.print("Word detected: ");
+      Serial.print(words[i]);
+      Serial.println("U");
       Serial.println("");
       voice_detected = true;
     }
