@@ -481,7 +481,7 @@ while 1:
             pyautogui.press(cw_rotation_mapping)
             print(cw_rotation_mapping)
 
-      if 'playC' in incoming:
+      if 'Play' in incoming:
             pyautogui.press('playpause')
             print("playpause")
 
@@ -489,7 +489,7 @@ while 1:
             pyautogui.press('playpause')
             print("playpause")  
 
-      if 'playU' in incoming:
+      if 'PlayU' in incoming:
           print('Did you say "Play"? Y/N')
           if input().lower() == 'y':
               pyautogui.press('playpause')
@@ -499,5 +499,5 @@ while 1:
           if input().lower() == 'y':
               pyautogui.press('playpause')
     
-      if "NP" in incoming:
+      if "Word not recognized" in incoming:
           print("Could not hear word. Try again")
