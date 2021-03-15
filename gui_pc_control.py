@@ -17,7 +17,7 @@ import os
 
 profiles_list = []
 gestures_list = []
-profile_file = r'D:/Github/MC-2/profiles.csv'
+profile_file = r'./profiles.csv'
 tempfile = NamedTemporaryFile('w+t', newline='', delete=False)
 
 # open file in read mode
@@ -75,7 +75,7 @@ size = (str(x_size) + "x" + str(y_size))
 root.geometry(size)
 
 # Create a photoimage object of the image in the path
-Arduino = Image.open("D:/Github/MC-2/ArduinoNano.jpg")
+Arduino = Image.open("./ArduinoNano.jpg")
 #width = 285
 #height = 510
 #Arduino = Arduino.resize((width, height), Image.ANTIALIAS)
