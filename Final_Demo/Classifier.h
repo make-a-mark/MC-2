@@ -8,7 +8,7 @@ namespace Eloquent {
                     /**
                     * Predict class for features vector
                     */
-                    int predict(float *x) {
+                    float predict(float *x) {
                         float kernels[26] = { 0 };
                         float decisions[1] = { 0 };
                         int votes[2] = { 0 };
@@ -42,7 +42,7 @@ namespace Eloquent {
                         decision = decision - ( + kernels[0] * -1.160068e-06  + kernels[1] * -7.18675e-06  + kernels[2] * -7.9705296e-05  + kernels[3] * -8.133019e-06  + kernels[4] * -1.0790776e-05  + kernels[5] * -2.20106e-07  + kernels[6] * -9.309762e-06  + kernels[7] * -1.6891083e-05  + kernels[8] * -4.5082542e-05  + kernels[9] * -5.24713e-07  + kernels[10] * -2.49416e-07  + kernels[11] * -6.990228e-06 );
                         decision = decision - ( + kernels[12] * 1.0520159e-05  + kernels[13] * 1.1123457e-05  + kernels[14] * 2.250871e-06  + kernels[15] * 1.6313992e-05  + kernels[16] * 2.7977e-06  + kernels[17] * 7.419835e-06  + kernels[18] * 2.73573e-07  + kernels[19] * 2.5534462e-05  + kernels[20] * 4.322427e-06  + kernels[21] * 1.4027739e-05  + kernels[22] * 6.411941e-06  + kernels[23] * 7.2721e-06  + kernels[24] * 2.85345e-06  + kernels[25] * 7.5122053e-05 );
 
-                        return decision > 0 ? 0 : 1;
+                        return decision;
                     }
 
                     /**
@@ -55,14 +55,19 @@ namespace Eloquent {
                     /**
                     * Convert class idx to readable name
                     */
-                    const char* idxToLabel(uint8_t classIdx) {
-                        switch (classIdx) {
-                            case 0:
-                            return "pause";
-                            case 1:
-                            return "play";
-                            default:
-                            return "Houston we have a problem";
+                    const char* idxToLabel(float classIdx) {
+                        if (classIdx > 0) {
+                            if (classIdx < 1)
+                                return "pauseU";
+                            else
+                                return "pauseC";
+                        } else if (classIdx < 0) {
+                            if (classIdx < -1) 
+                                return "playC";
+                            else
+                                return "playU";
+                        } else {
+                            return "NP";
                         }
                     }
 

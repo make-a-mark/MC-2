@@ -15,7 +15,7 @@ import pyautogui
 
 profiles_list = []
 gestures_list = []
-profile_file = r'C:/Users/markm/Desktop/Winter Quarter 2021/ECE M119/MC^2/Profiles/profiles.csv'
+profile_file = r'D:/Github/MC-2/profiles.csv'
 tempfile = NamedTemporaryFile('w+t', newline='', delete=False)
 
 # open file in read mode
@@ -73,7 +73,7 @@ size = (str(x_size) + "x" + str(y_size))
 root.geometry(size)
 
 # Create a photoimage object of the image in the path
-Arduino = Image.open("C:/Users/markm/Desktop/ArduinoNano.jpg")
+Arduino = Image.open("D:/Github/MC-2/ArduinoNano.jpg")
 #width = 285
 #height = 510
 #Arduino = Arduino.resize((width, height), Image.ANTIALIAS)
@@ -146,7 +146,7 @@ swipe_down_string = tkinter.StringVar()
 swipe_down_box = ttk.Combobox(root,width = 20, textvariable = swipe_down_string) 
 swipe_down_box.place(x=525, y=1350) 
 
-selected_profile = ""
+selected_profile = "default\t"
 
 def submit():
     global selected_profile
@@ -438,7 +438,7 @@ swipe_down_box.current(mapped_index)
 
 root.mainloop()
 
-arduino_serial = serial.Serial('com6', 9600)
+arduino_serial = serial.Serial("COM4", 9600)
 time.sleep(2)
 
 profile_index = profiles_list.index(selected_profile)
@@ -478,10 +478,23 @@ while 1:
             pyautogui.press(cw_rotation_mapping)
             print(cw_rotation_mapping)
 
-      if 'play' in incoming:
+      if 'playC' in incoming:
             pyautogui.press('playpause')
             print("playpause")
 
-      if 'pause' in incoming:
+      if 'pauseC' in incoming:
             pyautogui.press('playpause')
-            print("playpause")      
+            print("playpause")  
+
+      if 'playU' in incoming:
+          print('Did you say "Play"? Y/N')
+          if input().lower() == 'y':
+              pyautogui.press('playpause')
+
+      if 'pauseU' in incoming:
+          print('Did you say "Pause"? Y/N')
+          if input().lower() == 'y':
+              pyautogui.press('playpause')
+    
+      if "NP" in incoming:
+          print("Could not hear word. Try again")

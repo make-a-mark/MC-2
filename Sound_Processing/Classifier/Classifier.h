@@ -8,7 +8,7 @@ namespace Eloquent {
                     /**
                     * Predict class for features vector
                     */
-                    int predict(float *x) {
+                    float predict(float *x) {
                         float kernels[26] = { 0 };
                         float decisions[1] = { 0 };
                         int votes[2] = { 0 };
@@ -55,7 +55,18 @@ namespace Eloquent {
                     /**
                     * Convert class idx to readable name
                     */
-                    const char* idxToLabel(uint8_t classIdx) {
+                    const char* idxToLabel(float classIdx) {
+                        if (classIdx > 0) {
+                            if (classIdx < 1)
+                                return "play -- Unconfident";
+                            else
+                                return "play -- confident";
+                        } else if (classIdx < 0) {
+                            if (classIdx < -1) 
+                                return "pause -- Confident";
+                            else
+                                return "pause -- Unconfident";
+                        }
                         switch (classIdx) {
                             case 0:
                             return "pause";
