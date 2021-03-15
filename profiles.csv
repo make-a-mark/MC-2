@@ -1,0 +1,6 @@
+default	,,,,,
+Swipe Right,Swipe Left,Swipe Up,Swipe Down,CW Rotation,CCW Rotation
+nexttrack,prevtrack,playpause,playpause,volumedown,volumeup
+ppp
+Swipe Right,Swipe Left,Swipe Up,Swipe Down,CW Rotation,CCW Rotation
+browserforward,browserback,browserrefresh,browserhome,separator,num1
