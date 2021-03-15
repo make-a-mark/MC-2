@@ -13,6 +13,8 @@ import serial
 import time
 import pyautogui
 
+import os
+
 profiles_list = []
 gestures_list = []
 profile_file = r'D:/Github/MC-2/profiles.csv'
@@ -439,6 +441,7 @@ swipe_down_box.current(mapped_index)
 root.mainloop()
 
 arduino_serial = serial.Serial("COM4", 9600)
+os.system("explorer.exe shell:appsFolder\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
 time.sleep(2)
 
 profile_index = profiles_list.index(selected_profile)
