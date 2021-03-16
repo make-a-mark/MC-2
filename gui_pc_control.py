@@ -441,7 +441,7 @@ ccw_rotation_box.current(mapped_index3)
 root.mainloop()
 
 arduino_serial = serial.Serial("COM4", 9600)
-os.system("explorer.exe shell:appsFolder\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
+#os.system("explorer.exe shell:appsFolder\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
 time.sleep(2)
 
 profile_index = profiles_list.index(selected_profile)
@@ -511,6 +511,7 @@ while 1:
                 else:
                     incoming = str (arduino_serial.readline())
                     if 'Spotify' in incoming:
+                        print("Opening Spotify")
                         os.system("explorer.exe shell:appsFolder\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
                     elif 'SpotifyU' in incoming:
                         print('Did you say "Spotify"? Y/N')
@@ -527,6 +528,7 @@ while 1:
             else:
                 incoming = str (arduino_serial.readline())
                 if 'Spotify' in incoming:
+                    print("Opening Spotify")
                     os.system("explorer.exe shell:appsFolder\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
                 elif 'SpotifyU' in incoming:
                     print('Did you say "Spotify"? Y/N')
