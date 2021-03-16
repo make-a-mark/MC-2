@@ -177,20 +177,20 @@ void loop() {
     if (IMU.gyroscopeAvailable()) 
     {
       IMU.readGyroscope(x, y, z);
-      if (debug_flag)
-      {
-        Serial.print(z);
-        Serial.print("\t");
-        Serial.print(prev_z);
-        Serial.print("\t");
-        Serial.print(going_down);
-        Serial.print("\t");
-        Serial.print(going_up);
-        Serial.print("\t");
-        Serial.print(z - prev_z);
-        Serial.print("\t");
-        Serial.println(z + prev_z);
-      }
+//      if (debug_flag)
+//      {
+//        Serial.print(z);
+//        Serial.print("\t");
+//        Serial.print(prev_z);
+//        Serial.print("\t");
+//        Serial.print(going_down);
+//        Serial.print("\t");
+//        Serial.print(going_up);
+//        Serial.print("\t");
+//        Serial.print(z - prev_z);
+//        Serial.print("\t");
+//        Serial.println(z + prev_z);
+//      }
       
       // using rotation around z axis to control volume
   
