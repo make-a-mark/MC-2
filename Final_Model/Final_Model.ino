@@ -95,7 +95,7 @@ void setup() {
 void loop() {
 
   // waiting until sampling triggered
-  if(rms < SAMPLE_THRESHOLD) 
+  if(rms > SAMPLE_THRESHOLD) 
   {
 
     digitalWrite(LED_BUILTIN, HIGH);
