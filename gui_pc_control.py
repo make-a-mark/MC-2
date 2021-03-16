@@ -14,6 +14,7 @@ import time
 import pyautogui
 
 import os
+import time
 
 profiles_list = []
 gestures_list = []
@@ -416,26 +417,25 @@ swipe_right_value = rows[2][0]
 mapped_index = all_keyboard_options.index(swipe_right_value)
 swipe_right_box.current(mapped_index)
 
-cw_rotation_value = rows[2][0]
-mapped_index = all_keyboard_options.index(cw_rotation_value)
-cw_rotation_box.current(mapped_index)
+swipe_left_value = rows[2][1]
+mapped_index2 = all_keyboard_options.index(swipe_left_value)
+swipe_left_box.current(mapped_index2)
 
-swipe_left_value = rows[2][0]
-mapped_index = all_keyboard_options.index(swipe_left_value)
-swipe_left_box.current(mapped_index)
+swipe_up_value = rows[2][2]
+mapped_index4 = all_keyboard_options.index(swipe_up_value)
+swipe_up_box.current(mapped_index4)
 
+swipe_down_value = rows[2][3]
+mapped_index5 = all_keyboard_options.index(swipe_down_value)
+swipe_down_box.current(mapped_index5)
 
-ccw_rotation_value = rows[2][0]
-mapped_index = all_keyboard_options.index(ccw_rotation_value)
-ccw_rotation_box.current(mapped_index)
+cw_rotation_value = rows[2][4]
+mapped_index1 = all_keyboard_options.index(cw_rotation_value)
+cw_rotation_box.current(mapped_index1)
 
-swipe_up_value = rows[2][0]
-mapped_index = all_keyboard_options.index(swipe_up_value)
-swipe_up_box.current(mapped_index)
-
-swipe_down_value = rows[2][0]
-mapped_index = all_keyboard_options.index(swipe_down_value)
-swipe_down_box.current(mapped_index)
+ccw_rotation_value = rows[2][5]
+mapped_index3 = all_keyboard_options.index(ccw_rotation_value)
+ccw_rotation_box.current(mapped_index3)
 
 
 root.mainloop()
@@ -454,50 +454,85 @@ ccw_rotation_mapping = rows[2+(profile_index*3)][5]
 
 
 while 1:
-      incoming = str (arduino_serial.readline())
-      print (incoming)
+    incoming = str (arduino_serial.readline())
+    print (incoming)
       
-      if 'Swipe Right' in incoming:
-            pyautogui.press(swipe_right_mapping)
-            print(swipe_right_mapping)
+    if 'Swipe Right' in incoming:
+        pyautogui.press(swipe_right_mapping)
+        print(swipe_right_mapping)
          
-      if 'Swipe Left' in incoming:
-            pyautogui.press(swipe_left_mapping)
-            print(swipe_left_mapping)
+    if 'Swipe Left' in incoming:
+        pyautogui.press(swipe_left_mapping)
+        print(swipe_left_mapping)
 
-      if 'Swipe Up' in incoming:
-            pyautogui.press(swipe_up_mapping)
-            print(swipe_up_mapping)
+    if 'Swipe Up' in incoming:
+        pyautogui.press(swipe_up_mapping)
+        print(swipe_up_mapping)
 
-      if 'Swipe Down' in incoming:
-            pyautogui.press(swipe_down_mapping)
-            print(swipe_down_mapping)
+    if 'Swipe Down' in incoming:
+        pyautogui.press(swipe_down_mapping)
+        print(swipe_down_mapping)
 
-      if 'CCW Rotation' in incoming:
-            pyautogui.press(ccw_rotation_mapping)
-            print(ccw_rotation_mapping)
+    if 'CW Rotation' in incoming:
+        pyautogui.press(cw_rotation_mapping)
+        print(cw_rotation_mapping)
 
-      if 'CW Rotation' in incoming:
-            pyautogui.press(cw_rotation_mapping)
-            print(cw_rotation_mapping)
+    if 'Counter Rotation' in incoming:
+        pyautogui.press(ccw_rotation_mapping)
+        print(ccw_rotation_mapping)
 
-      if 'Play' in incoming:
+    if 'Play' in incoming:
+        pyautogui.press('playpause')
+        print("playpause")
+
+    if 'pauseC' in incoming:
+        pyautogui.press('playpause')
+        print("playpause")  
+
+    if 'PlayU' in incoming:
+        print('Did you say "Play"? Y/N')
+        if input().lower() == 'y':
             pyautogui.press('playpause')
-            print("playpause")
 
-      if 'pauseC' in incoming:
+    if 'pauseU' in incoming:
+        print('Did you say "Pause"? Y/N')
+        if input().lower() == 'y':
             pyautogui.press('playpause')
-            print("playpause")  
 
-      if 'PlayU' in incoming:
-          print('Did you say "Play"? Y/N')
-          if input().lower() == 'y':
-              pyautogui.press('playpause')
+    if 'LaunchU' in incoming:
+        print('Did you say "Launch"? Y/N')
+        if input().lower() == 'y':
+            time_start = time.time()
+            while True:
+                time_now = time.time()
+                elapsed_time = time_now - time_start
+                if elapsed_time > 3:
+                    break
+                else:
+                    incoming = str (arduino_serial.readline())
+                    if 'Spotify' in incoming:
+                        os.system("explorer.exe shell:appsFolder\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
+                    elif 'SpotifyU' in incoming:
+                        print('Did you say "Spotify"? Y/N')
+                        if input().lower() == 'y':
+                            os.system("explorer.exe shell:appsFolder\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
 
-      if 'pauseU' in incoming:
-          print('Did you say "Pause"? Y/N')
-          if input().lower() == 'y':
-              pyautogui.press('playpause')
-    
-      if "Word not recognized" in incoming:
-          print("Could not hear word. Try again")
+    if 'Launch' in incoming:
+        time_start = time.time()
+        while True:
+            time_now = time.time()
+            elapsed_time = time_now - time_start
+            if elapsed_time > 3:
+                break
+            else:
+                incoming = str (arduino_serial.readline())
+                if 'Spotify' in incoming:
+                    os.system("explorer.exe shell:appsFolder\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
+                elif 'SpotifyU' in incoming:
+                    print('Did you say "Spotify"? Y/N')
+                    if input().lower() == 'y':
+                        os.system("explorer.exe shell:appsFolder\\SpotifyAB.SpotifyMusic_zpdnekdrzrea0!Spotify")
+
+
+    if "Word not recognized" in incoming:
+        print("Could not hear word. Try again")  
