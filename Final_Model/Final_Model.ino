@@ -154,19 +154,19 @@ void loop() {
       switch (gesture) 
       {
         case GESTURE_UP:
-          Serial.println("playpause");
+          Serial.println("Swipe Up");
           break;
   
         case GESTURE_DOWN:
-          Serial.println("playpause");
+          Serial.println("Swipe Down");
           break;
   
         case GESTURE_LEFT:
-          Serial.println("PrevTrack");
+          Serial.println("Swipe Left");
           break;
   
         case GESTURE_RIGHT:
-          Serial.println("NextTrack");
+          Serial.println("Swipe Right");
           break;
   
         default:
@@ -205,7 +205,7 @@ void loop() {
       // Detecting a CW rotation big enough to elicit a volume change
       if ( (z - prev_z > 15) && base )
       {
-        Serial.println("VolDown");
+        Serial.println("Counter Rotation");
         prev_z = z;
         going_up = 1;
         going_down = 0;
@@ -214,13 +214,13 @@ void loop() {
   
       if ( (z - prev_z > 10 ) && going_up )
       {
-        Serial.println("VolDown");
+        Serial.println("Counter Rotation");
         prev_z = z;
       }
   
       if ( (z - prev_z < -15) && base )
       {
-        Serial.println("VolUp");
+        Serial.println("CW Rotation");
         prev_z = z;
         going_up = 0;
         going_down = 1;
@@ -229,7 +229,7 @@ void loop() {
   
       if ( (z - prev_z < -10 ) && going_down )
       {
-        Serial.println("VolUp");
+        Serial.println("CW Rotation");
         prev_z = z;
       }
      
